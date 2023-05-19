@@ -13,7 +13,7 @@ namespace Foto_Upload.Pages
         {
             if (ModelState.IsValid)
             {
-                string connectionString = "Data Source=users.db";
+                string connectionString = "Data Source=photocloud.db";
 
                 using (var connection = new SqliteConnection(connectionString))
                 {

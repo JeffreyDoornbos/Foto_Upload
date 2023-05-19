@@ -1,0 +1,31 @@
+﻿@page
+@model Foto_Upload.Pages.UploadModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<h1>Upload Photos</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="uploadedFiles">Select Photos:</label>
+        <input type="file" id="uploadedFiles" name="UploadedFiles" multiple class="form-control-file" required>
+    </div>
+
+    <!-- New input field for Evenement -->
+    <div class="form-group">
+        <label for="evenement">Evenement:</label>
+        <input type="text" id="evenement" name="Evenement" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+<br />
+
+<a asp-page-handler="Logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>

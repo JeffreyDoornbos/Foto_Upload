@@ -1,74 +1,52 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.Sqlite;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 namespace Foto_Upload.Pages
 {
-
-
-    //public class RequireLoginAttribute : ActionFilterAttribute
-    //{
-    //    public override void OnActionExecuting(ActionExecutingContext context)
-    //    {
-    //        var session = context.HttpContext.Session;
-    //        var username = session.GetString("Username");
-
-    //        if (string.IsNullOrEmpty(username))
-    //        {
-    //            context.Result = new RedirectToPageResult("/Login");
-    //        }
-    //    }
-    //}
-
-    public class LoginModel : PageModel
+    public class InlogModel : PageModel
     {
-        private readonly string _dbPath;
-
-        public LoginModel()
-        {
-            _dbPath = "users.db";
-        }
+        private readonly string connectionString = "Data Source=photocloud.db";
 
         [BindProperty]
-        public UserViewModel User { get; set; }
+        public string Username { get; set; }
 
-        public IActionResult OnPost()
+        [BindProperty]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        public async Task<IActionResult> OnPostAsync()
         {
-            using (var connection = new SqliteConnection($"Data Source={_dbPath}"))
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+            {
+                ModelState.AddModelError(string.Empty, "Gebruikersnaam en wachtwoord zijn verplicht.");
+                return Page();
+            }
+
+            using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
 
                 var selectCommand = connection.CreateCommand();
-                selectCommand.CommandText = "SELECT * FROM Users WHERE username = @Username AND password = @Password";
-                selectCommand.Parameters.AddWithValue("@Username", User.Username);
-                selectCommand.Parameters.AddWithValue("@Password", User.Password);
+                selectCommand.CommandText = $"SELECT * FROM users WHERE username = @username AND password = @password";
+                selectCommand.Parameters.AddWithValue("@username", Username);
+                selectCommand.Parameters.AddWithValue("@password", Password);
 
-                using (var reader = selectCommand.ExecuteReader())
+                var reader = selectCommand.ExecuteReader();
+
+                if (reader.Read())
                 {
-                    if (!reader.Read())
-                    {
-                        ModelState.AddModelError(string.Empty, "Invalid username or password");
-                        return Page();
-                    }
-
-                    // Perform login logic here (e.g., set authentication cookie)
+                    HttpContext.Session.SetString("Username", Username);
+                    return RedirectToPage("/Upload");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Gebruikersnaam of wachtwoord is onjuist.");
+                    return Page();
                 }
             }
-
-            return RedirectToPage("/Index");
-        }
-
-        public class UserViewModel
-        {
-            public int ID { get; set; }
-
-            [Required]
-            public string Username { get; set; }
-
-            [Required]
-            public string Password { get; set; }
         }
     }
 }
