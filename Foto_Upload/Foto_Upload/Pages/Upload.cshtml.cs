@@ -27,11 +27,12 @@ namespace Foto_Upload.Pages
             _uploadFolderPath = Path.Combine(webHostEnvironment.WebRootPath, "uploads");
         }
         [Authorize]
-        public IActionResult OnGetLogout()
+        public IActionResult OnPostLogout()
         {
             HttpContext.Session.Clear();
             return RedirectToPage("/Inlog");
         }
+
         [Authorize]
         public IActionResult OnGet()
         {
