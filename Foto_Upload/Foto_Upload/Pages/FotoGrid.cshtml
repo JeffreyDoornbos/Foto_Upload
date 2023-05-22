@@ -4,7 +4,7 @@
     ViewData["Title"] = "Foto's";
 }
 
-<h1>Foto's'</h1>
+<h1>Foto's</h1>
 
 <div class="row">
     @foreach (var photo in Model.Photos)
@@ -16,6 +16,12 @@
                     <h5 class="card-title">@photo.FileName</h5>
                     <p class="card-text">Uploaded by: @photo.UploadedBy</p>
                     <p class="card-text">Event: @photo.Evenement</p>
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name == photo.UploadedBy)
+                    {
+                        <form method="post" asp-page-handler="Delete" asp-route-filePath="@photo.FilePath">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    }
                 </div>
             </div>
         </div>

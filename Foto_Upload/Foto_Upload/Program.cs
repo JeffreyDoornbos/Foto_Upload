@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +18,21 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+// Add authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "Cookies";
+    options.DefaultChallengeScheme = "Cookies";
+})
+.AddCookie("Cookies", options =>
+{
+    // Configure cookie options
+});
+
+
+// Add authorization
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -37,6 +53,9 @@ app.UseRouting();
 
 // Use session middleware
 app.UseSession();
+
+// Use authentication
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 
 namespace Foto_Upload.Pages
 {
@@ -19,7 +21,7 @@ namespace Foto_Upload.Pages
             _uploadFolderPath = Path.Combine(webHostEnvironment.WebRootPath, "uploads");
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             using (var connection = new SqliteConnection($"Data Source={_dbPath}"))
             {
@@ -48,7 +50,47 @@ namespace Foto_Upload.Pages
 
                 Photos = photos;
             }
+
+            return Page();
         }
+
+        public IActionResult OnPostDelete(string filePath)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("/Inlog");
+            }
+
+            var uploadedByCurrentUser = Photos.FirstOrDefault(p => p.FilePath == filePath && p.UploadedBy == User.Identity.Name);
+            if (uploadedByCurrentUser == null)
+            {
+                return NotFound();
+            }
+
+            // Delete the file from the uploads folder
+            var fullPath = Path.Combine(_uploadFolderPath, filePath);
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+
+            // Delete the record from the database
+            using (var connection = new SqliteConnection($"Data Source={_dbPath}"))
+            {
+                connection.Open();
+
+                var deleteCommand = connection.CreateCommand();
+                deleteCommand.CommandText = "DELETE FROM Files WHERE FilePath = @filePath";
+                deleteCommand.Parameters.AddWithValue("@filePath", filePath);
+                deleteCommand.ExecuteNonQuery();
+            }
+
+            // Refresh the list of photos
+            OnGet();
+
+            return Page();
+        }
+
     }
 
     public class PhotoModel
