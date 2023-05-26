@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jeffr\\Desktop\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj": {}
+    "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jeffr\\Desktop\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj": {
+    "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jeffr\\Desktop\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj",
+        "projectUniqueName": "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj",
         "projectName": "Foto_Upload",
-        "projectPath": "C:\\Users\\jeffr\\Desktop\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj",
-        "packagesPath": "C:\\Users\\jeffr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jeffr\\Desktop\\Foto_Upload\\Foto_Upload\\obj\\",
+        "projectPath": "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj",
+        "packagesPath": "/Users/jeffreydoornbos/.nuget/packages/",
+        "outputPath": "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/jeffreydoornbos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -75,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
