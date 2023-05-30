@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj": {}
+    "C:\\Users\\lynxd\\Documents\\GitHub\\Foto_Upload\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj": {}
   },
   "projects": {
-    "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj": {
+    "C:\\Users\\lynxd\\Documents\\GitHub\\Foto_Upload\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj",
+        "projectUniqueName": "C:\\Users\\lynxd\\Documents\\GitHub\\Foto_Upload\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj",
         "projectName": "Foto_Upload",
-        "projectPath": "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/Foto_Upload.csproj",
-        "packagesPath": "/Users/jeffreydoornbos/.nuget/packages/",
-        "outputPath": "/Users/jeffreydoornbos/Documents/GitHub/Foto_Upload/Foto_Upload/Foto_Upload/obj/",
+        "projectPath": "C:\\Users\\lynxd\\Documents\\GitHub\\Foto_Upload\\Foto_Upload\\Foto_Upload\\Foto_Upload.csproj",
+        "packagesPath": "C:\\Users\\lynxd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lynxd\\Documents\\GitHub\\Foto_Upload\\Foto_Upload\\Foto_Upload\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jeffreydoornbos/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lynxd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
