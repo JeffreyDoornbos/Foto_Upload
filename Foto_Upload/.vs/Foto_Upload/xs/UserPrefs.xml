@@ -1,11 +1,23 @@
 ﻿<Properties StartupConfiguration="{5BC43F09-9D51-49F7-805A-1995DD1392B0}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Foto__Upload PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Foto_Upload/Pages/Upload.cshtml.cs">
+    <Files>
+      <File FileName="Foto_Upload/Pages/Inlog.cshtml" />
+      <File FileName="Foto_Upload/Pages/Inlog.cshtml.cs" />
+      <File FileName="Foto_Upload/Pages/Register.cshtml.cs" />
+      <File FileName="Foto_Upload/Pages/Upload.cshtml.cs" Line="73" Column="81" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Foto_Upload" expanded="True">
             <Node name="Foto_Upload" expanded="True">
+              <Node name="Pages" expanded="True">
+                <Node name="Inlog.cshtml" expanded="True" />
+                <Node name="Register.cshtml" expanded="True" />
+                <Node name="Upload.cshtml" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True" />
               <Node name="photocloud.db" selected="True" />
             </Node>
           </Node>
@@ -13,10 +25,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Foto__Upload PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

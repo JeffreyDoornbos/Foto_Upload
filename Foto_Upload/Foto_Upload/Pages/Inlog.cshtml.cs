@@ -10,10 +10,10 @@ namespace Foto_Upload.Pages
     {
         private readonly string connectionString = "Data Source=photocloud.db";
 
-        [BindProperty]
+        [BindProperty, Required]
         public string Username { get; set; }
 
-        [BindProperty]
+        [BindProperty, Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
